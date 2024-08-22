@@ -2,12 +2,14 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <title>恐龙</title>
+    <title>My Browser Homepage</title>
     <style>
         body, html {
             margin: 0;
             padding: 0;
             overflow: hidden;
+            background-color: #1a1a1a;
+            color: #fff;
         }
         #backgroundImage {
             position: fixed;
@@ -20,9 +22,91 @@
             background-repeat: no-repeat;
             z-index: -1;
         }
+        #searchForm {
+            position: absolute;
+            top: 20%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+        #searchForm input[type="text"] {
+            padding: 10px;
+            border: none;
+            border-radius: 50px;
+            background-color: #333;
+            color: #fff;
+            width: 300px;
+            font-size: 16px;
+        }
+        #searchForm button[type="submit"] {
+            margin-top: 10px; /* 搜索按钮与搜索框的间距 */
+            padding: 10px 20px;
+            border: none;
+            border-radius: 50px;
+            background-color: #4d4d4d;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        /* 翻译按钮样式调整 */
+        #buttonBase {
+            margin-top: 20px; /* 翻译按钮与搜索按钮的间距 */
+            padding: 10px 20px;
+            border: none;
+            border-radius: 50px;
+            background-color: #4d4d4d;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        #squareButton {
+            margin-top: 20px; /* 翻译按钮与搜索按钮的间距 */
+            padding: 10px 20px;
+            border: none;
+            border-radius: 0;
+            background-color: #4d4d4d;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        /* 新增的div元素样式 */
+        #footer {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 14px;
+            color: #000000;
+        }
+        #hyperlink {
+            color: #7daaff;
+        }
     </style>
 </head>
 <body>
-    <div id="backgroundImage" style="background-image: url('https://dailybing.com/api/v1');"></div>
+    <div id="backgroundImage" style="background-image: url('https://dailybing.com/api/v1/en-us');">
+    <form id="searchForm" action="https://global.bing.com/search?mkt=en-us" method="get">
+        <input type="text" name="q" placeholder=" Search with bing...">
+        <button type="submit">Search</button>
+        <!-- 翻译按钮现在在搜索框下方，与搜索框紧密排列 -->
+        <br>
+        <button id="buttonBase" type="button" 
+        onclick="window.location.href='https://github.com'">
+            GitHub Dashboard
+        </button>
+        <button id="buttonBase" type="button" 
+        onclick="window.location.href='https://translate.google.com'">
+            Google Translate
+        </button>
+    </form>
+    <!-- 新增的div元素 -->
+    <div id="footer">
+        <button id="squareButton" type="button">
+            This website is built using GitHub Pages.&nbsp;
+            <a href="https://jyz2012.github.io" id="hyperlink">
+                About this site.
+            </a>
+        </button>
+    </div>
 </body>
 </html>
